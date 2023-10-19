@@ -113,18 +113,27 @@ The figure below shows the expected time profiles for bubble dissolution for thr
 
 ### Comparison with experiments
 
-The experimental dissolution profiles I obtained are shown in the figure below (square symbols), with the Carbopol properties used in the previous section and $R_0 = 125$ µm, which should not drastically change the dimensionless numbers we have been using.
+The experimental dissolution profiles I obtained are shown in the figure below (square symbols), with the Carbopol properties used in the previous section and $R_0 = 117$ µm, which should not drastically change the dimensionless numbers we have been using previously. We immediately see that the fit and the data do not match very well.
 
-<img src="./dissolution_type.png" width="400">
+<img src="./dissolution_exp_naive.png">
 
 .
 
+We can try to be a bit better and adjust the surface tension to match the dissolution time. In such a case, the experimental dissolution _profile_ still does not match the model :
 
+<img src="./dissolution_exp_fittedST.png">
 
+.
 
-Here, the dissolution profiles have been fitted using a different algorithm, based on the explicit solution of [Michelin _et al._](https://doi.org/10.1103/PhysRevFluids.3.043601), which assume a low-viscosity Newtonian surrounding matrix. We have just shown above that in the framework of Venerus JNNFM 2015, bubble dissolution _should not be affected_ by the mechanical properties of my Carbopols. 
+We can finally try to adjust _both_ the under-saturation factor $f$ and the surface tension $\Gamma$. In that case, we _do_ get a good match, but the typical value for surface tension becomes very low :
 
-The best fit to the experimental data suggests a saturation factor around $0.99$, which is understandable considering weather variability. I have never managed to obtain reliably $f = 1.000$, even though I drew my DI water around 1 month before I prepare my Carbopol and despite waiting for more than a week before starting experiments in a temperature-controlled cell of size $5 \times 5 \times 5~\text{cm}^3$. The values I obtain usually fall into the range $[0.975\,;\,0.998]$, but differs from one bubble to the next, irrespective of whether I stir the fluid between experiments, and irrespective of the bubble injection depth.
+<img src="./dissolution_exp_fittedST_and_f.png">
 
-Even more surprising is the value of the _effective_ surface tension, which is quite low, and seems to be decreasing with increasing yield stress. Here, the value extracted from the fit lies around $[0.02\,;\,0.04]$, with again poor repeatability for a range of yield stresses $\sigma_Y$ under 10 Pa.
+.
+
+(the dissolution profiles have been fitted using a different algorithm, based on the explicit solution of [Michelin _et al._](https://doi.org/10.1103/PhysRevFluids.3.043601), which assume a low-viscosity Newtonian surrounding matrix)
+
+The saturation factor around $0.99$ is understandable considering weather variability. I have never managed to obtain reliably $f = 1.000$, even though I drew my DI water around 1 month before I prepare my Carbopol and despite waiting for more than a week before starting experiments in a temperature-controlled cell of size $5 \times 5 \times 5~\text{cm}^3$. The values I obtain usually fall into the range $[0.975\,;\,0.998]$, but differ from one bubble to the next, irrespective of whether I stir the fluid between experiments, and irrespective of the bubble injection depth.
+
+I am really puzzled by this _effective_ surface tension, which is too low, and seems to be decreasing with increasing yield stress. Here, the value extracted from the fit lies around $[0.02\,;\,0.04]$, with again poor repeatability for a range of yield stresses $\sigma_Y$ under 10 Pa, even though I took particular care of trying to get rid of impurities and dust.
 
