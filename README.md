@@ -28,7 +28,7 @@ We consider here the dissolution of small bubbles in a Carbopol. We have :
 * $G = 90~{\rm Pa}$ the linear shear elastic modulus of the Carbopol
 * $D = 2.0 \times 10^{-9}~{\rm m}^2.{\rm s}^{-1}$ is the diffusion coefficient of air in water (I consider it will be the same in Carbopol) 
 
-### Forcing and simplifications related to $N_a \to 0$
+### Forcing and simplifications related to weak forcing
 
 There is a difference between the paper and our experiments. In the Venerus paper, _at the initial stage_, a bubble is at equilibrium with its surroundings with a pressure outside the bubble being uniform and set to $p_0 + \Delta p_0$. We then suddenly change the pressure to $p_0$ to drive bubble dissolution (if $\Delta p_0 \leq 0$) or growth ($\Delta p_0 \geq 0$). The amplitude of the forcing term is being computed as 
 
@@ -71,7 +71,7 @@ And finally, the Bingham number, which is relatively large :
 $$ N_{\rm Bn} = \sigma R_0^2 / D \eta = 7 $$
 
 
-### The bubble pressure as a function of current $R(t)$ and initial $R_0$ radii
+### The bubble pressure as a function of current and initial radii
 
 Here, we blindly follow the results of Venerus JNNFM (2015), Equation (22) : 
 
@@ -79,9 +79,9 @@ $$ p - p_0 = \frac{2 \Gamma}{R} \pm 2 \sqrt{3}\sigma_{\rm Y} \ln \left ( \frac{S
 
 $S$ being the size of the (spherical) yielded region, which itself depends on $R$ and $R_0$.
 
-We are currently double-checking the equations in the plastic regime, since the additional stress tensor ${\bm \tau}$ is not necessarily traceless for large deformations and it usually causes a bit of trouble.
+We are currently double-checking the equations in the plastic regime, since the additional stress tensor $\tau$ is not necessarily traceless for large deformations and it usually causes a bit of trouble.
 
-### Ordinary differential equation for $R(t)$
+### Ordinary differential equation for the evolution of R
 
 The 2015 JNNFM paper does not really provide an explicit (ordinary) differential equation to solve to obtain $R(t)$ for a bubble dissolving in a yield-stress (un-)saturated fluid. We can use the results of the [Fyrillas _et al_. (2000)](https://pubs.acs.org/doi/full/10.1021/la990784y) paper [Equation (2.4) notably] and that of [Kloek _et al._(2001)](https://doi.org/10.1006/jcis.2001.7454), still ignoring the viscous contributions, which would introduce another $\dot{R}$ (admittedly annoying) term: 
 
