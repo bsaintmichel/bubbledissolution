@@ -21,10 +21,12 @@ We consider here the dissolution of small bubbles in a Carbopol. We have :
 * $R_0 = 10^{-4}~{\text m}$ the initial bubble radius
 * $\Gamma = 0.07~{\rm N}.{\rm m}^{-1}$ the Carbopol surface tension, which is reasonable considering independent experiments done here and the existing literature.
 * $\rho = 1000~{\rm kg}.{\rm m}^{-3}$ the Carbopol density
-* $A p_0 = \bar{\rho_0} = 1.3~{\rm kg}.{\rm m}^{-3}$ is the density of the bubble in the absence of surface tension, elasticity, etc. for an ideal gas. We then have $A = M/ {\cal R}T$ with $T$ the temperature, ${\cal R}$ the ideal gas constant and $M$ the molar mass of the gas.
-* $k_H p_0 = 2.0 . 10^{-5}$ Henry's law constant giving the mass fraction $w$ of dissolved gas in water at thermal equilibrium at a pressure $p_0$ in water (I consider that it will be the same in Carbopol)
+* $p_0 = 1.013 \times 10^5~{\rm Pa}$ is the ambient pressure.
+* $T=298~{\rm K}$ the temperature
+* $A p_0 = M \bar{\rho_0}/ \mathcal{R} T = 1.3~{\rm kg}.{\rm m}^{-3}$ is the density of the bubble in the absence of surface tension, elasticity, etc., with ${\cal R}$ the ideal gas constant and $M$ the molar mass of the gas.
+* $k_H p_0 = 2.0 . 10^{-5}$ the (dimensionless) Henry's law constant giving the mass fraction $w$ of dissolved gas in water at thermal equilibrium at a pressure $p_0$ in water (I consider that it will be the same in Carbopol)
 * $\sigma_{\rm Y} = 9.5~{\rm Pa}$ is the yield stress of the Carbopol 
-* $\eta = 7~{\rm Pa}.{\rm s}$ has been obtained from a very crude linear approximation of the extra stress in the Carbopol between $\dot\gamma = 0$ and $\dot\gamma = 1 {\rm s}^{-1}$ 
+* $\eta = 7~{\rm Pa}.{\rm s}$ has been obtained from a very crude linear approximation of the extra stress in the Carbopol between $\dot\gamma = 0$ and $\dot\gamma = 1~{\rm s}^{-1}$ 
 * $G = 90~{\rm Pa}$ the linear shear elastic modulus of the Carbopol
 * $D = 2.0 \times 10^{-9}~{\rm m}^2.{\rm s}^{-1}$ is the diffusion coefficient of air in water (I consider it will be the same in Carbopol) 
 
@@ -38,11 +40,9 @@ where  $w_0 = k_H (p_0 + \Delta p)$ is the mass fraction of solute initially and
 
 In our experiments, we are injecting a bubble in a medium where, originally, we expect equilibrium with the outside air, so $w(t < 0) = w_1$. This corresponds more closely to the Fyrillas and Kloek papers. I interpret our experiment -- from the point of view of the Venerus JNNFM paper -- as a sudden switch of surface tension, elasticity and plasticity effects at $t = 0^+$, leading to an initial additional pressure term $\Delta p = 2\Gamma / R_0$. This bubble would indeed be in equilibrium with a medium with a solute mass fraction $w = w_0$ choosing $\Delta p = 2 \Gamma / R_0$, $\Gamma$ being the matrix surface tension and $R_0$ the initial bubble radius. 
 
-Notations are then a bit reversed between the paper and our experiments, but the absolute value of $N_a$ is really what matters, and we can estimate it for a typical experiment in Carbopol. Considering the values of [Henry's law constants for nitrogen and oxygen](https://en.wikipedia.org/wiki/Henry's_law?section=19#Values_of_Henry's_law_constants), we can safely assume that $w_1 \ll 1$, leading to : 
+Notations are then a bit reversed between the paper and our experiments between $w_0$ and $w_1$, but the absolute value of $N_a$ is really what matters, and we can estimate it for a typical experiment in Carbopol. In any case we are well in the $w_1 \ll 1$ regime, leading to : 
 
-$$ N_a = k_H \frac{2 \Gamma}{R_0} \frac{\rho}{A p_0}  = 2 \times 10^{-4}$$
-
-So we should be in the case $N_a \to 0$
+$$ N_a = k_H \frac{2 \Gamma}{R_0} \frac{\rho}{A p_0}  = 2 \times 10^{-4} \to 0$$
 
 ### Other dimensionless quantities
 
@@ -50,11 +50,11 @@ Considering the properties of the Carbopol, we are fully in the "diffusion-contr
 
 $$ N_{\rm p} = \frac{\eta D}{R_0^2 p_0} = 1.4 \times 10^{-5} $$ 
 
-The normalised pressure term $N_{\Delta p}$ can also be computed, leading to a relatively small relative pressure change in the bubble initially : 
+The normalised pressure term $N_{\Delta p}$ can also be computed. The initial relative pressure change in the bubble is small : 
 
 $$ N_{\rm \Delta p } = \left ( 1 + \frac{2 \Gamma}{ R_0 p_0} \right )^{-1} = 0.985$$
 
-The capillary number can also be estimated, and is small : 
+The capillary number can also be estimated, and is again small : 
 
 $$ N_{\rm Ca} = \eta D / \Gamma R_0 = 2 \times 10^{-3}$$
 
@@ -73,13 +73,16 @@ $$ N_{\rm Bn} = \sigma R_0^2 / D \eta = 7 $$
 
 ### The bubble pressure as a function of current and initial radii
 
-Here, we blindly follow the results of Venerus JNNFM (2015), Equation (22) : 
+Here, we blindly follow the results of Venerus JNNFM (2015), Equation (22) to express the pressure inside the difference between the pressure inside bubble $p(R)$ and the pressure in the matrix far from it, $p_0$: 
 
 $$ p - p_0 = \frac{2 \Gamma}{R} \pm 2 \sqrt{3}\sigma_{\rm Y} \ln \left ( \frac{S}{R}\right ) + G \left [ \frac{5}{2} - \frac{1}{2} \left (1 -\frac{R^3 - R_0^3}{S^3} \right )^{1/3} \left ( 5 - \frac{R^3 - R_0^3}{S^3}\right ) \right ] $$
 
-$S$ being the size of the (spherical) yielded region, which itself depends on $R$ and $R_0$.
+$S$ being the size of the (spherical) yielded region, which itself depends on $R$ and $R_0$ (Equation 20 from Venerus JNNFM) : 
 
-We are currently double-checking the equations in the plastic regime, since the additional stress tensor $\tau$ is not necessarily traceless for large deformations and it usually causes a bit of trouble.
+$$\left [\left (1 - \frac{R^3 - R_0^3}{S^3} \right)^{4/3} - 1 \right ]^2 +
+  \left [\left (1 - \frac{R^3 - R_0^3}{S^3} \right)^{-2/3} - 1 \right]^2 = 2 \left (\frac{\sigma}{G} \right )^2$$
+
+We are currently double-checking the equations for the bubble pressure in the plastic regime, since the additional stress tensor $\tau$ is not necessarily traceless for large deformations and it usually causes a bit of trouble in the derivation of the matrix terms for $p$.
 
 ### Ordinary differential equation for the evolution of R
 
