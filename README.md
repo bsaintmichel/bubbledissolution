@@ -113,7 +113,13 @@ The figure below shows the expected time profiles for bubble dissolution for thr
 
 ### Comparison with experiments
 
-The experimental dissolution profiles I obtained are shown in the figure below (square symbols), with the Carbopol properties used in the previous section and $R_0 = 117$ µm, which should not drastically change the dimensionless numbers we have been using previously. We immediately see that the fit and the data do not match very well.
+Here is a picture of the initial bubble of $R_0 = 117$ µm, and what is left behind after it dissolves completely
+
+<img src="./exp_images.png" width="800">
+
+.
+
+The experimental dissolution profiles I obtained are shown in the figure below (square symbols), with the Carbopol properties used in the previous section. The new value of $R_0$ should not drastically change the dimensionless numbers we have been using previously. We immediately see that the model and the data do not match very well.
 
 <img src="./dissolution_exp_naive.png">
 
@@ -123,6 +129,13 @@ We can try to be a bit better and adjust the surface tension to match the dissol
 
 <img src="./dissolution_exp_fittedST.png">
 
+. 
+
+We can also try to adjust the under-saturation factor $f$ to match the dissolution time. We obtain a $f$ very close to 1, but still a difference between the fitted and the experimental profiles.
+
+<img src="./dissolution_exp_fittedf.png">
+
+
 .
 
 We can finally try to adjust _both_ the under-saturation factor $f$ and the surface tension $\Gamma$. In that case, we _do_ get a good match, but the typical value for surface tension becomes very low :
@@ -131,7 +144,7 @@ We can finally try to adjust _both_ the under-saturation factor $f$ and the surf
 
 .
 
-(the dissolution profiles have been fitted using a different algorithm, based on the explicit solution of [Michelin _et al._](https://doi.org/10.1103/PhysRevFluids.3.043601), which assume a low-viscosity Newtonian surrounding matrix)
+(in this particular case, the dissolution profiles have been fitted using a different algorithm, based on the explicit solution of [Michelin _et al._](https://doi.org/10.1103/PhysRevFluids.3.043601), which assume a low-viscosity Newtonian surrounding matrix)
 
 The saturation factor around $0.99$ is understandable considering weather variability. I have never managed to obtain reliably $f = 1.000$, even though I drew my DI water around 1 month before I prepare my Carbopol and despite waiting for more than a week before starting experiments in a temperature-controlled cell of size $5 \times 5 \times 5~\text{cm}^3$. The values I obtain usually fall into the range $[0.975\,;\,0.998]$, but differ from one bubble to the next, irrespective of whether I stir the fluid between experiments, and irrespective of the bubble injection depth.
 
