@@ -95,3 +95,8 @@ Here, we have used the _molar concentration_ $c_0$ of the dissolved gas rather t
 We note that $k_H \mathcal{R} T$ is a dimensionless group, highlighting the need to make the equations dimensionless by using $D$. We can follow the conventions of either Venerus or Kloek _et al_., which are essentially the same, using $\epsilon = R/R_0$ as done above and $x^2 = D t / R_0^2$. We can then rewrite our differential equation, writing $\tilde{p} = p(R)/p_0$ :
 
 $$ \frac{\partial \epsilon}{\partial x} = - 6 k_H \mathcal{R} T \frac{\tilde{p} - f}{3 \tilde{p} + \epsilon \partial \tilde{p} / \partial \epsilon} \left ( \frac{x}{\epsilon} + \frac{1}{\sqrt{\pi}} \right ) $$
+
+### Results ?
+
+Check out the [Jupyter Notebook](./Bubble_Dissolution_alaVenerus.ipynb). No need to check the code itself if you don't want to, all the graphs are there.
+
