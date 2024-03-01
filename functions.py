@@ -168,9 +168,13 @@ def S_fun(params):
 
     RETURNS
     -------
-    * S_fun [ndarray] : the extent of the yielded region for the Rs considered
+    * S_fun [scipy.interpolator, works like a function] : the extent of the yielded region for the Rs considered
     NOTE : if there is no solution of the equation for S_fun, the code automatically 
     sets S_fun = R, which means the plastic term is set to 0. 
+    * dS_fun [scipy.interpolator, also works like a function] : the rate of increase
+    (or decrease) of the yielded region when R is changed. Will be useful to determine
+    plastic contributions later on.
+
     """
 
     G = params.G
@@ -185,12 +189,12 @@ def S_fun(params):
                          np.linspace(0.317,3.16,10000), \
                          np.logspace(0.5,3,500)))
     Ss = np.zeros_like(Rs)
-    vfun = lambda R, S_fun : ((1 - (R**3 - 1**3)/S_fun**3)**(+4/3) - 1)**2 \
-                     + 2*((1 - (R**3 - 1**3)/S_fun**3)**(-2/3) - 1)**2 \
+    vfun = lambda R, S : ((1 - (R**3 - 1**3)/S**3)**(+4/3) - 1)**2 \
+                     + 2*((1 - (R**3 - 1**3)/S**3)**(-2/3) - 1)**2 \
                      - 2*(sigmaY/G)**2
 
     for no, R in enumerate(Rs):
-        Ss[no] = fsolve(lambda S_fun : vfun(R, S_fun), x0=R)[0]
+        Ss[no] = fsolve(lambda S : vfun(R, S), x0=R)[0]
 
     condition = (np.abs(vfun(Rs, Ss)) > 1e-6) | (Ss < Rs)
     Ss[condition] = Rs[condition]
@@ -265,10 +269,12 @@ def YS_fun(params, S_fun, dimensionless=True):
     YSvals = 2*np.sqrt(3)*np.log(Svals/Rs)
     YSvals[Rs < 1] = -YSvals[Rs < 1]
 
-    if not dimensionless:
+    if not dimensionless and np.isfinite(params.yieldstress):
         YSvals *= params.yieldstress
-    else: 
+    elif np.isfinite(params.yieldstress): 
         YSvals *= params.yieldstress/params.p0
+    # Note : if the YS is infinite, S should be equal to R and the plastic term should be zero
+    # if we do not normalize it, it yields the correct value.
 
     YSfun = interp1d(x=Rs, y=YSvals, kind='linear', bounds_error=False, fill_value='extrapolate')
 

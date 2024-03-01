@@ -80,7 +80,7 @@ $$ p - p_0 = \frac{2 \Gamma}{R} \pm 2 \sqrt{3}\sigma_{\rm Y} \ln \left ( \frac{S
 $S$ being the size of the (spherical) yielded region, which itself depends on $R$ and $R_0$ (Equation 20 from Venerus JNNFM) : 
 
 $$\left [\left (1 - \frac{R^3 - R_0^3}{S^3} \right)^{4/3} - 1 \right ]^2 +
-  \left [\left (1 - \frac{R^3 - R_0^3}{S^3} \right)^{-2/3} - 1 \right]^2 = 2 \left (\frac{\sigma}{G} \right )^2$$
+  2 \left [\left (1 - \frac{R^3 - R_0^3}{S^3} \right)^{-2/3} - 1 \right]^2 = 2 \left (\frac{\sigma}{G} \right )^2$$
 
 We are currently double-checking the equations for the bubble pressure in the plastic regime, since the additional stress tensor $\tau$ is not necessarily traceless for large deformations and it usually causes a bit of trouble in the derivation of the matrix terms for $p$.
 
